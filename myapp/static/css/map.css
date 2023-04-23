@@ -1,0 +1,34 @@
+.map-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+#mapid {
+    height: 500px;
+    width: 900px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.custom-btn {
+    border: none;
+}
+
+.custom-btn:hover {
+    /* Darker green on hover */
+    background-color: #45a049;
+}
+
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.custom-btn:focus {
+    outline: none;
+    box-shadow: none;
+}

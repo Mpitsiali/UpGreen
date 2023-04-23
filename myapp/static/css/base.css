@@ -1,0 +1,41 @@
+:root {
+    --theme: #408d44;
+    /* Set the CSS variable to the desired color */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+}
+
+
+footer {
+    background-color: var(--theme);
+    padding: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--theme);
+}
+
+.btn-success {
+    background-color: var(--theme);
+    border-color: var(--theme);
+}
+
+.nav-link {
+    color: var(--theme);
+}
+
+.navbar {
+    font-size: 24px;
+}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block map_css %}
+<link rel="stylesheet" href="{% static 'css/map.css' %}">
+{% endblock %}
+{% block map_js %}
+<script src="{% static 'js/map.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<script src="https://unpkg.com/@mapbox/leaflet-pip@latest/leaflet-pip.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script>
+    var geojsonUrl = "{% url 'geojson' %}";
+</script>
+
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="infoModalLabel">Building Block Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="infoModalContent">
+                <p><span id="modal-ot_code"></span></p>
+                <p><span id="modal-Arithmos_o"></span></p>
+                <p><span id="modal-Dimos"></span></p>
+                <p><span id="modal-Dim_enot"></span></p>
+                <p><span id="modal-Name"></span></p>
+                <p><span id="modal-ZONE"></span></p>
+                <p><span id="modal-Landuse"></span></p>
+                <p><span id="modal-M_code"></span></p>
+                <p><span id="modal-T_K"></span></p>
+                <p><span id="modal-dist"></span> μ.</p>
+                <p><span id="modal-dist_tram"></span> μ.</p>
+                <p><span id="modal-dist_metro"></span> μ.</p>
+                <p><span id="modal-No_of_resi"></span></p>
+                <p><span id="modal-Sum_of_sqm"></span></p>
+                <p><span id="modal-Avg_sqm_re"></span></p>
+                <p><span id="modal-Energy_sco"></span></p>
+                <p><span id="modal-En_Up_cost"></span></p>
+                <p><span id="modal-Con_Year_s"></span></p>
+                <p><span id="modal-Avg_con_ye"></span> χρόνια</p>
+                <p><span id="modal-Block_valu"></span></p>
+                <p><span id="modal-Value"></span></p>
+                <p><span id="modal-Value_q4_2"></span></p>
+                <p><span id="modal-Avg_res_va"></span></p>
+                <p><span id="modal-Ratio"></span></p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="map-container">
+    <div class="map-buttons">
+        <button class="btn btn-lg custom-btn active" data-bs-toggle="tooltip" data-bs-placement="top"
+            title="Default Layer" id="btn-color-0">Default</button>
+        <button class="btn btn-lg custom-btn" id="btn-color-1" data-bs-toggle="tooltip" data-bs-placement="top"
+            title="Layer that shows the Average Age Per Building Block. Green: 2000+ | Orange: 1980-2000 | Red: <1980 | White:No Data">Age</button>
+        <button class="btn btn-lg custom-btn" id="btn-color-2" data-bs-toggle="tooltip" data-bs-placement="top"
+            title="Layer that shows the Average Energy Cost">Energy</button>
+        <button class="btn btn-lg custom-btn" id="btn-color-3" data-bs-toggle="tooltip" data-bs-placement="top"
+            title="Layer that measures how feasible is to achieve Energy Score.">UpGreen Ratio</button>
+    </div>
+    <div id="mapid"></div>
+</div>
+
+{% endblock %}
