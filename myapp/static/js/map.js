@@ -65,29 +65,28 @@ map.on('click', function (e) {
             "M_code": "Κωδικός Δήμου",
             "T_K": "Tαχ. Kώδικας",
             "No_of_resi": "Αριθμός Κατοικιών",
-            "Sum_of_sqm": "Σύνολο τ.μ.",
-            "Avg_sqm_re": "Μέσος όρος τ.μ. κατοικιών",
+            "Sum_of_sqm": "Συνολική Επιφάνεια",
+            "Avg_sqm_re": "Επιφάνεια κατοικίας (μ.ο)",
             "Energy_sco": "Ενεργειακή βαθμολογία",
             "En_Up_cost": "Κόστος ενεργειακής αναβάθμισης",
             "Con_Year_s": "Βαθμολογία έτους κατασκευής",
             "Avg_con_ye": "Μέσος όρος έτους κατασκευής",
             "Block_valu": "Αξία τετραγώνου",
             "Value": "Αντικειμενική Αξία (2021)",
-            "Value_q4_2": "Αντικειμενική Αξία Q4",
+            "Value_q4_2": "Αντικειμενική Αξία Q4(2022)",
             "Avg_res_va": "Μέσος όρος αξίας κατοικίας",
-            "Ratio": "UpGreen Ratio"
+            "Ratio": "UpGreen Score"
         };
 
-        const euroValues = ['Block_valu','Value','Value_q4_2','Avg_res_va','En_Up_cost']
+        const euroValues = ['Block_valu', 'Value', 'Value_q4_2', 'Avg_res_va', 'En_Up_cost']
 
         const featureProperties = results[0].feature.properties;
 
         for (const key in propertyKeysTranslations) {
             const modalFieldId = 'modal-' + key;
             const modalElement = document.getElementById(modalFieldId);
-            
-            if (euroValues.includes(key))
-            {
+
+            if (euroValues.includes(key)) {
                 modalElement.innerHTML = '<strong>' + propertyKeysTranslations[key] + ':</strong> €' + featureProperties[key];
 
             }

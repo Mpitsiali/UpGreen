@@ -1,4 +1,4 @@
 *.pyc
 __pycache__/
-bog-datathon/
+venv/
 .env
